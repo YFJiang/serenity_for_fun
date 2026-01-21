@@ -1,0 +1,9 @@
+#execute command
+$ cd Toolchain
+$ ./BuildIt.sh
+$ cd ../Build/i686
+$ cmake ../.. -G Ninja
+# when changes happen, run below commands
+$ ninja install
+$ ninja image
+$ ninja run

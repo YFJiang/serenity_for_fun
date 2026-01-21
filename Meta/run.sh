@@ -58,7 +58,6 @@ $SERENITY_EXTRA_QEMU_ARGS
 -device virtconsole,chardev=stdout
 -device isa-debugcon,chardev=stdout
 -device virtio-rng-pci
--soundhw pcspk
 -device sb16
 "
 
@@ -79,7 +78,6 @@ $SERENITY_EXTRA_QEMU_ARGS
 -device virtconsole,chardev=stdout
 -device isa-debugcon,chardev=stdout
 -device virtio-rng-pci
--soundhw pcspk
 -device sb16
 "
 

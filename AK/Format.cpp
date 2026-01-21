@@ -92,7 +92,7 @@ void vformat_impl(TypeErasedFormatParams& params, FormatBuilder& builder, Format
     if (specifier.index == use_next_index)
         specifier.index = params.take_next_index();
 
-    auto& parameter = params.parameters().at(specifier.index);
+    auto parameter = params.parameters().at(specifier.index);
 
     FormatParser argparser { specifier.flags };
     parameter.formatter(params, builder, argparser, parameter.value);

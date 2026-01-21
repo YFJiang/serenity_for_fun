@@ -104,6 +104,8 @@ OwnPtr<KBuffer> DMIExpose::structure_table() const
 UNMAP_AFTER_INIT DMIExpose::DMIExpose()
 {
     auto entry_32bit = find_entry32bit_point();
+    if (!entry_32bit.has_value())
+	return;
     m_entry_point = entry_32bit.value();
 
     auto entry_64bit = find_entry64bit_point();

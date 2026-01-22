@@ -1,0 +1,8 @@
+#Instruction call stack
+CrashDaemon(15): 0x14bc7bf1: [/bin/UserspaceEmulator] UserspaceEmulator::SimpleRegion::read32(unsigned int) +0x51 (SimpleRegion.cpp:60)
+CrashDaemon(15): 0x14c40029: [/bin/UserspaceEmulator] UserspaceEmulator::SoftMMU::read32(X86::LogicalAddress) +0x59 (SoftMMU.cpp:169)
+CrashDaemon(15): 0x14be192f: [/bin/UserspaceEmulator] UserspaceEmulator::SoftCPU::read_memory32(X86::LogicalAddress) +0x4f (SoftCPU.cpp:146)
+CrashDaemon(15): 0x14be6b83: [/bin/UserspaceEmulator] UserspaceEmulator::SoftCPU::MOV_reg32_RM32(X86::Instruction const&) +0xb3 (Instruction.h:730)
+CrashDaemon(15): 0x14bb2afb: [/bin/UserspaceEmulator] UserspaceEmulator::Emulator::exec() +0x48b (Emulator.cpp:251)
+CrashDaemon(15): 0x14bae3be: [/bin/UserspaceEmulator] main +0x81e (main.cpp:81)
+CrashDaemon(15): 0x14bae658: [/bin/UserspaceEmulator] _start +0x58 (crt0.cpp:59)

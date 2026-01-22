@@ -48,7 +48,8 @@ void SoftMMU::add_region(NonnullOwnPtr<Region> region)
     for (size_t page = first_page_in_region; page <= last_page_in_region; ++page) {
         m_page_to_region_map[page] = region.ptr();
     }
-
+    //reportln("SoftMMU::add_region: base:{:p},end:{:p}, first_page_in_region:{}, last_page_in_region:{} ", region->base(), region->end(), first_page_in_region, last_page_in_region);
+ 
     m_regions.append(move(region));
     quick_sort((Vector<OwnPtr<Region>>&)m_regions, [](auto& a, auto& b) { return a->base() < b->base(); });
 }
@@ -161,7 +162,9 @@ ValueWithShadow<u32> SoftMMU::read32(X86::LogicalAddress address)
         m_emulator.dump_backtrace();
         TODO();
     }
-
+    /*if(address.offset() - region->base() + 3 >= region->size()){
+        reportln("SoftMMU::read32: Out-of-bounds read; base:{:p}, offset:{:p}, size:{:p}, end:{:p} PAGE_SIZE:{:p}, selector:{:p}", region->base(), address.offset(), region->size(), region->end(), PAGE_SIZE, address.selector());
+    }*/
     return region->read32(address.offset() - region->base());
 }
 

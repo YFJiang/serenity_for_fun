@@ -168,5 +168,6 @@ else
         -netdev user,id=breh,hostfwd=tcp:127.0.0.1:8888-10.0.2.15:8888,hostfwd=tcp:127.0.0.1:8823-10.0.2.15:23,hostfwd=tcp:127.0.0.1:8000-10.0.2.15:8000,hostfwd=tcp:127.0.0.1:2222-10.0.2.15:22 \
         -device e1000,netdev=breh \
         -kernel Kernel/Kernel \
+        -accel tcg \
         -append "${SERENITY_KERNEL_CMDLINE}"
 fi

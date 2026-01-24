@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 3.5)
 project (Lagom)
 
 if (NOT ENABLE_OSS_FUZZ)

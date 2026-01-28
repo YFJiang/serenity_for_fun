@@ -112,6 +112,7 @@ ALWAYS_INLINE Mallocation* MallocRegionMetadata::mallocation_for_address(FlatPtr
 
 ALWAYS_INLINE Optional<size_t> MallocRegionMetadata::chunk_index_for_address(FlatPtr address) const
 {
+    reportln("MallocTracer: hack, chunksize:****{}", chunk_size);
     bool is_chunked_block = chunk_size <= size_classes[num_size_classes - 1];
     if (!is_chunked_block) {
         // This is a BigAllocationBlock
@@ -189,6 +190,7 @@ Mallocation* MallocTracer::find_mallocation(FlatPtr address)
     return find_mallocation(*region, address);
 }
 
+//find max addlocated address that is smaller than target address
 Mallocation* MallocTracer::find_mallocation_before(FlatPtr address)
 {
     Mallocation* found_mallocation = nullptr;
@@ -202,6 +204,7 @@ Mallocation* MallocTracer::find_mallocation_before(FlatPtr address)
     return found_mallocation;
 }
 
+//find min allocated address that is larger than target address
 Mallocation* MallocTracer::find_mallocation_after(FlatPtr address)
 {
     Mallocation* found_mallocation = nullptr;
